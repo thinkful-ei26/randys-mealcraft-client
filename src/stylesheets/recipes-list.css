@@ -1,0 +1,36 @@
+.recipe-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.recipe-list li {
+  max-width: 740px;
+  min-width: 360px;
+  flex-direction: column;
+  display: flex;
+  padding: 10px 40px;
+}
+
+.recipe-list li h2 {
+  font-size: 24px;
+  margin: auto;
+}
+
+.ingredients-list {
+  padding: 0px;
+}
+
+.ingredients-list li {
+  padding: 20px 0px;
+}
+
+img {
+  align-self: center;
+  border-radius: 50px;
+  margin: auto
+}
+
+button {
+  max-width: 360px;
+}

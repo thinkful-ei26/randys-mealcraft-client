@@ -2,11 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 
-import LoginForm from './login-form';
 import SearchForm from './search-form';
 import RecipesList from './recipes-list';
 import {authSuccess} from '../actions/auth';
-
+import '../stylesheets/landing-page.css'
+import TopNav from './top-nav';
 
 class LandingPage extends React.Component {
     // If we are logged in redirect straight to the user's dashboard
@@ -29,11 +29,9 @@ class LandingPage extends React.Component {
 
         return (
             <div className="home">
-                <h2>MealCraft</h2>
+                <TopNav />
                 <SearchForm />
                 <RecipesList />
-                <LoginForm />
-                <Link to="/register">Register</Link>
             </div>
         );
     }

@@ -5,6 +5,7 @@ import {fetchRecipes} from '../actions/searchRecipes';
 import InstructionsButton from './instructions-button';
 import InstructionsList from './instructions-list';
 import SaveRecipeButton from './save-recipe-button';
+import '../stylesheets/recipes-list.css'
 
 export class RecipesList extends React.Component {
   componentDidMount() {

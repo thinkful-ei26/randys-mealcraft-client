@@ -1,0 +1,26 @@
+.search-form {
+  padding: 26px;
+  background-color: #E7E7E7;
+  box-shadow: 0.5px 0.5px lightgrey;
+}
+
+.search-form label {
+  font-size: 24px;
+}
+
+.search-form input {
+  margin-bottom: 4px;
+  margin-top: 10px;
+  width: 240px;
+  border: none;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.search-form button {
+  padding: 8px;
+  border-radius: 4px;
+  width: 168px;
+  background-color: lightgrey;
+  font-size: 14px;
+}

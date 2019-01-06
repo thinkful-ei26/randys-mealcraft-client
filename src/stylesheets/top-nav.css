@@ -1,0 +1,52 @@
+.welcome-bar ul {
+  /* list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; */
+}
+
+.welcome-bar {
+  background-image: url('../images/cooking_class_banner.jpg');
+  max-height: 244px;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-bar li {
+  height: auto;
+  width: auto;
+}
+
+
+.user-controls {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0px 40px;
+  /* align-items: center;
+  margin: 0px;
+  padding: 0px; */
+}
+
+.user-controls p {
+  color: lightgrey;
+}
+
+.user-controls li {
+  padding: 0px 12px;
+  color: black;
+}
+
+.user-controls a {
+  text-decoration: none;
+  color: goldenrod
+}
+
+.welcome-bar h1 {
+  font-size: 48px;
+  color: lightgrey;
+  font-family: 'Signika Negative', sans-serif;
+  margin-left: 84px;
+}
+

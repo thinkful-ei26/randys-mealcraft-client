@@ -2,6 +2,7 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import {fetchRecipes} from '../actions/searchRecipes'
 import Input from './input';
+import '../stylesheets/search-form.css';
 
 export class SearchForm extends React.Component {
   onSubmit(values) {
@@ -25,7 +26,7 @@ export class SearchForm extends React.Component {
         onSubmit={this.props.handleSubmit(values => 
           this.onSubmit(values))}>
         {error}
-        <label htmlFor='ingredients'>Ingredients</label>
+        <label htmlFor='ingredients'>Search recipes by ingredient</label>
         <Field 
           component={Input}
           type="text"
