@@ -13,7 +13,7 @@ class LandingPage extends React.Component {
 
     componentDidMount() {
         const authToken = localStorage.getItem('token')
-        console.log('JFJFJFJFJFJFJF', authToken)
+        console.log('authToken', authToken)
         console.log('logged in?', this.props.loggedIn)
         console.log('Current User:', this.props.currentUser)
         // this.props.dispatch(authSuccess(this.props.currentUser))

@@ -1,34 +1,40 @@
+import { API_BASE_URL } from "../config";
 
-export const FETCH_SAVE_RECIPES_SUCCESS = 'FETCH_RECIPES_SUCCESS'
-export const fetchSaveRecipesSuccess = (data) => {
+export const SAVE_RECIPE_SUCCESS = 'RECIPES_SUCCESS'
+export const SaveRecipeSuccess = (data) => {
   return {
-    type: FETCH_SAVE_RECIPES_SUCCESS,
+    type: SAVE_RECIPE_SUCCESS,
     data
   }
 }
 
-export const FETCH_SAVE_RECIPES_REQUEST = 'FETCH_RECIPES_REQUEST'
-export const fetchSaveRecipesRequest = (data) => {
+export const SAVE_RECIPE_REQUEST = '_RECIPE_REQUEST'
+export const SaveRecipeRequest = (data) => {
   return {
-    type: FETCH_SAVE_RECIPES_REQUEST,
+    type: SAVE_RECIPE_REQUEST,
   }
 }
 
-export const FETCH_SAVE_RECIPES_ERROR = 'FETCH_RECIPES_REQUEST'
-export const fetchSaveRecipesError = (error) => {
+export const SAVE_RECIPE_ERROR = 'RECIPES_REQUEST'
+export const SaveRecipeError = (error) => {
   return {
-    type: FETCH_SAVE_RECIPES_REQUEST,
+    type: SAVE_RECIPE_REQUEST,
     error
   }
 }
 
-export const saveRecipe = (recipe) => dispatch => {
-  fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=${ingredients}`, {
+export const saveRecipe = (recipe) => (dispatch) => {
+  const authToken = localStorage.getItem('token')
+  console.log(this)
+  return fetch(`${API_BASE_URL}/myrecipes`, {
     method: 'POST',
-    headers: {},
-    body: recipe
+    headers: {
+      'content-type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    },
+    body: JSON.stringify(recipe)
   })
   .then(res => (res.json()))
-  .then(data => dispatch(fetchSaveRecipesSuccess(data)))
+  .then(data => dispatch(SaveRecipeSuccess(data)))
   .catch(error => console.log(error))
 }

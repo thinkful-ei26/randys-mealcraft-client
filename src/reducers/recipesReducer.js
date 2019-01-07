@@ -9,11 +9,23 @@ import {FETCH_INSTRUCTIONS_SUCCESS,
         GET_RECIPE_ID}
 from '../actions/getInstructions'
 
+import {SAVE_RECIPE_SUCCESS, 
+  SAVE_RECIPE_REQUEST,  
+  SAVE_RECIPE_ERROR} 
+from '../actions/saveRecipes'
+
+import {FETCH_SAVED_RECIPES_SUCCESS, 
+  FETCH_SAVED_RECIPES_REQUEST,  
+  FETCH_SAVED_RECIPES_ERROR} 
+from '../actions/showSavedRecipes'
+
 
 const initialState = {
   recipes: [],
   instructions: [],
   ingredients: [],
+  savedRecipes: [],
+  showRecipes: false,
   loading: false,
   error: null
 }
@@ -68,6 +80,36 @@ const recipesReducer = (state=initialState, action) => {
   } else if (action.type === GET_RECIPE_ID) {
     return Object.assign({}, state, {
       recipeIds: action.id
+    })
+  } else if (action.type === SAVE_RECIPE_REQUEST) {
+    return Object.assign({}, state, {
+      loading: true,
+    })
+  } else if (action.type === SAVE_RECIPE_ERROR) {
+    return Object.assign({}, state, {
+      loading: false,
+      error: action.error,
+    })
+  } else if (action.type === SAVE_RECIPE_SUCCESS) {
+    return Object.assign({}, state, {
+      loading: false,
+      error: null,
+    })
+  } else if (action.type === FETCH_SAVED_RECIPES_REQUEST) {
+    return Object.assign({}, state, {
+      loading: true,
+    })
+  } else if (action.type === FETCH_SAVED_RECIPES_ERROR) {
+    return Object.assign({}, state, {
+      loading: false,
+      error: action.error
+    })
+  } else if (action.type === FETCH_SAVED_RECIPES_SUCCESS) {
+    console.log(action.data)
+    return Object.assign({}, state, {
+      recipes: action.data,
+      loading: false,
+      error: null
     })
   }
   return state
