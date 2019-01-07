@@ -40,6 +40,5 @@ export const fetchRecipeInstructions = (id) => dispatch => {
   })
   .then(res => (res.json()))
   .then(data => dispatch(fetchInstructionsSuccess(data, id)))
-
   .catch(error => dispatch(fetchInstructionsError(error)))
 }
