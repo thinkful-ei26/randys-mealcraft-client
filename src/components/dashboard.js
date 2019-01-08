@@ -4,7 +4,8 @@ import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import SearchForm from './search-form';
 import RecipesList from './recipes-list';
-import MyRecipesButton from './my-recipes-button';
+// import MyRecipesButton from './my-recipes-button';
+import TopNav from './top-nav';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
@@ -14,14 +15,8 @@ export class Dashboard extends React.Component {
   render() {
     return (
       <div className="dashboard">
-        <div className="dashboard-username">
-          Username: {this.props.username}
-        </div>
-
-        <MyRecipesButton />
-
+       <TopNav />
         <div className="home">
-          <h2>MealCraft</h2>
           <SearchForm />
           <RecipesList />
         </div>

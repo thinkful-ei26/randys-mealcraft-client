@@ -1,29 +1,53 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-// import './top-nav.css';
 import LoginForm from './login-form';
 import {Link, Redirect} from 'react-router-dom';
 import '../stylesheets/top-nav.css'
+import MyRecipesButton from './my-recipes-button';
 
-export default class TopNav extends React.Component {
 
+export class TopNav extends React.Component {
   render() {
-    return (
+    let navbar =''
+    if (this.props.loggedIn === null) {
+      navbar = 
       <nav>
-        <div className="welcome-bar">
-          <ul className="user-controls">            
-            <li id="register">
-              <p>Want to save recipes? <Link to="/register">Register here!</Link></p>
-            </li>
-            <li>
-              <LoginForm />
-            </li>
-          </ul>
-          <header>
-            <h1>MealCraft</h1>    
-          </header>
-        </div>
+        <ul className="user-controls">            
+          <li id="register">
+            <p>Want to save recipes? <Link to="/register">Register here!</Link></p>
+          </li>
+          <li>
+            <LoginForm />
+          </li>
+        </ul>
       </nav>
+    } else {
+      navbar = 
+        <nav>
+          <div role='banner' className='dashboard-banner'>
+            <ul className="user-controls">            
+              <li>
+                <p>Meal<span id='craft'>Craft</span></p>
+                <p>Weclome back, {this.props.currentUser}!</p>
+              </li>
+              <li>
+                <MyRecipesButton />
+              </li>
+            </ul>  
+          </div>
+        </nav>
+    }
+
+    return (
+      navbar
     );
   }
 }
+
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser,
+  currentUser: state.auth.currentUser
+});
+
+export default connect(mapStateToProps)(TopNav)

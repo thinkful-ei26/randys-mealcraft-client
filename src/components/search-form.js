@@ -2,17 +2,20 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import {fetchRecipes} from '../actions/searchRecipes'
 import Input from './input';
+import {Link, Redirect} from 'react-router-dom';
 import '../stylesheets/search-form.css';
 
 export class SearchForm extends React.Component {
   onSubmit(values) {
     console.log(values.ingredients)
     return this.props.dispatch(fetchRecipes(values.ingredients))
+      // return <Redirect to="/recipes-list" />
       // , values.ingredients)
   }
 
   render() {
     let error;
+    let className;
     if (this.props.error) {
       error = (
         <div className="form-error" aria-live="polite">
@@ -20,9 +23,16 @@ export class SearchForm extends React.Component {
         </div>
       )
     }
+
+    if (this.props.loggedIn !== null) {
+      className = 'dashboard-search-form'
+    } else {
+      className = 'landing-search-form'
+    }
+    
     return (
       <form 
-        className='search-form'
+        className={className}
         onSubmit={this.props.handleSubmit(values => 
           this.onSubmit(values))}>
         {error}

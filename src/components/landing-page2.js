@@ -23,28 +23,22 @@ class LandingPage extends React.Component {
         console.log('current user:', this.props.currentUser)
         console.log('logged in:', this.props.loggedIn)
 
-        if (this.props.loggedIn !== null) {
+        if (this.props.loggedIn) {
             return <Redirect to="/dashboard" />;
         }
 
         return (
-            <div className="wrapper">
+            <div className="home">
                 <TopNav />
-                <main className='landing-content'>
-                    <header>
-                        <h1>Meal<span id='craft'>Craft</span></h1>    
-                    </header>
-                    <SearchForm loggedIn={this.props.loggedIn}/>
-                    <h2>What is MealCraft?</h2>
-                    <RecipesList />
-                </main>
+                <SearchForm />
+                <RecipesList />
             </div>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser,
+    loggedIn: state.auth.currentUser !== null,
     currentUser: state.auth.currentUser
 });
 

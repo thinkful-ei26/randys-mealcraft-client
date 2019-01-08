@@ -5,11 +5,23 @@
 }
 
 .recipe-list li {
-  max-width: 740px;
+  max-width: 400px;
   min-width: 360px;
   flex-direction: column;
   display: flex;
-  padding: 10px 40px;
+  padding: 20px 40px;
+  margin: 10px auto;
+  border: solid 1px #EDEDED;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px #EDEDED;
+}
+
+#recipe-list-header {
+  margin: auto 200px;
+  margin-top: 100px;
+  margin-bottom: 20px;
+  font-size: 40px;
 }
 
 .recipe-list li h2 {
@@ -17,20 +29,33 @@
   margin: auto;
 }
 
+.recipe-instructions {
+  color: darkgoldenrod
+}
+
 .ingredients-list {
   padding: 0px;
 }
 
 .ingredients-list li {
-  padding: 20px 0px;
+  padding: 0px 0px;
+  margin: 0px;
+  color: darkgrey;
+  border: 0px
 }
 
 img {
   align-self: center;
-  border-radius: 50px;
-  margin: auto
+  border-radius: 50%;
+  max-height: 160px;
+  padding-top: 20px;
 }
 
-button {
-  max-width: 360px;
+.recipe-list button {
+  padding: 8px;
+  border-radius: 4px;
+  width: 168px;
+  background-color: lightgoldenrodyellow;    
+  font-size: 14px;
+  margin-top: 20px;
 }

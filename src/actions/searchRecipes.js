@@ -9,7 +9,7 @@ export const fetchRecipesSuccess = (data) => {
 }
 
 export const FETCH_RECIPES_REQUEST = 'FETCH_RECIPES_REQUEST'
-export const fetchRecipesRequest = (data) => {
+export const fetchRecipesRequest = () => {
   return {
     type: FETCH_RECIPES_REQUEST,
   }
@@ -31,6 +31,7 @@ export const showInstructions = () => {
 }
 
 export const fetchRecipes = (ingredients) => dispatch => {
+  dispatch(fetchRecipesRequest)
   fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=${ingredients}`, {
     method: 'GET',
     headers: {'X-RapidAPI-Key': '9dd8773296msh1e9332f045d6091p1cf10bjsna6b2dc28c2e9'}

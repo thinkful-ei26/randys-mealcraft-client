@@ -5,7 +5,7 @@ import {Redirect} from 'react-router-dom';
 // import recipesReducer from '../reducers/recipesReducer';
 import {fetchRecipeInstructions} from '../actions/getInstructions'
 import { fetchSavedRecipes } from '../actions/showSavedRecipes';
-
+import '../stylesheets/my-recipes-button.css'
 
 export class MyRecipesButton extends React.Component {
 
@@ -27,7 +27,7 @@ export class MyRecipesButton extends React.Component {
       return (
            <button 
               onClick={() => this.onClick()}
-           >My Recipes</button>
+           id="my-recipes-button">My Recipes</button>
       );
   }
 }

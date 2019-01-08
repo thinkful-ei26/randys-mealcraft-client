@@ -4,14 +4,13 @@ import {fetchRecipes} from '../actions/searchRecipes';
 // import {getInstructions} from '../actions/getInstructions'
 import InstructionsButton from './instructions-button';
 import InstructionsList from './instructions-list';
-import SaveRecipeButton from './save-recipe-button';
 import DeleteRecipeButton from './delete-recipe-button';
 
 export class Recipe extends React.Component {
  
   render() {
     let instructions;
-
+    let userControls = ''
 
     // if (this.props.showRecipes) {
     //   const recipe = this.prop.myRecipes((recipe, index) => {
@@ -24,7 +23,12 @@ export class Recipe extends React.Component {
     // }
 
     const recipe = this.props.recipes.map((recipe, index) => {
-
+    
+    if (this.props.myRecipes) {
+          userControls = <DeleteRecipeButton recipe={recipe} recipeId={recipe.id} spoonacularId={recipe.spoonacularId}/>
+          // <UpdateRecipeButton />
+      }
+      
     console.log('instructions state', this.props.instructions)
     if ((!recipe.instructions) && this.props.loading === false) {
       instructions = <InstructionsButton recipeId={recipe.id} />
@@ -32,31 +36,20 @@ export class Recipe extends React.Component {
       instructions = <p>Loading Instructions</p>
     } else {
     // if (this.props.recipes.instructions !== null && this.props.loading === false) {
-      instructions = <InstructionsList instructions={recipe.instructions}>
+      instructions = <InstructionsList recipeId={recipe.id} recipe={recipe} instructions={recipe.instructions}>
         <button>Hide Instructions</button>
       </InstructionsList>
     }  
 
-    let saveRecipeButton = '';
-    if (this.props.loggedIn !== null && this.props.myRecipes === false) {
-      saveRecipeButton = <SaveRecipeButton recipe={recipe}/>
-    }
-
-    let userControls = ''
-    if (this.props.myRecipes) {
-      userControls = (
-        <DeleteRecipeButton />
-        // <UpdateRecipeButton />
-      )
-    }
+   
 
     return <li key={index}>
       <h2>{recipe.title}</h2>
       <img src={recipe.image} alt={recipe.title}></img>
       {instructions}
-      {saveRecipeButton}
-      <SaveRecipeButton recipe={recipe}/>
-      <DeleteRecipeButton recipe={recipe} recipeId={recipe.id} spoonacularId={recipe.spoonacularId}/>
+      {/* {saveRecipeButton} */}
+      {/* <SaveRecipeButton recipe={recipe}/> */}
+      {/* <DeleteRecipeButton recipe={recipe} recipeId={recipe.id} spoonacularId={recipe.spoonacularId}/> */}
       {userControls}
     </li>
     }
@@ -70,8 +63,7 @@ const mapStateToProps = (state) => {
   // console.log('Recipes State:', state.recipes.recipes)
   // console.log('loading state:', state.recipes.loading)
   return {
-    showRecipes: state.recipes.showRecipes,
-    myRecipes: state.recipes.savedRecipes,
+    myRecipes: state.recipes.myRecipes,
     recipes: state.recipes.recipes,
     ingredients: state.recipes.ingredients,
     instructions: state.recipes.instructions,

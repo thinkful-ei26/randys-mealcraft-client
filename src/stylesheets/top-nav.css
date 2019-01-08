@@ -1,12 +1,12 @@
 .welcome-bar ul {
-  /* list-style: none;
+  list-style: none;
   display: flex;
   justify-content: flex-end;
-  align-items: center; */
+  align-items: center;
 }
 
 .welcome-bar {
-  background-image: url('../images/cooking_class_banner.jpg');
+  /* background-image: url('../images/cooking_class_banner.jpg'); */
   max-height: 244px;
   margin: 0px;
   display: flex;
@@ -23,19 +23,19 @@
   display: flex;
   justify-content: space-between;
   list-style: none;
-  padding: 0px 40px;
-  /* align-items: center;
-  margin: 0px;
-  padding: 0px; */
+  padding: 18px 40px;
+  margin: 0 auto;
 }
 
 .user-controls p {
-  color: lightgrey;
+  color: lightgoldenrodyellow;
+  margin: 0 auto;
 }
 
 .user-controls li {
   padding: 0px 12px;
-  color: black;
+  color: lightgoldenrodyellow;
+  margin: 20px 0;
 }
 
 .user-controls a {
@@ -43,10 +43,14 @@
   color: goldenrod
 }
 
-.welcome-bar h1 {
-  font-size: 48px;
-  color: lightgrey;
-  font-family: 'Signika Negative', sans-serif;
-  margin-left: 84px;
+.dashboard-banner {
+  background-color: darkgrey;
+  height: 120px;
+  background-image: url('../images/cooking_class_banner.jpg')
 }
+
+.craft {
+  color: black;
+}
+
 

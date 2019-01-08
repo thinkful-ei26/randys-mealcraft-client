@@ -24,6 +24,11 @@ import {DELETE_RECIPE_SUCCESS,
   DELETE_RECIPE_ERROR} 
 from '../actions/deleteRecipes'
 
+import {HIDE_INSTRUCTIONS_SUCCESS, 
+  HIDE_INSTRUCTIONS_REQUEST, 
+  HIDE_INSTRUCTIONS_ERROR}
+from '../actions/hideInstructions'
+
 const initialState = {
   recipes: [],
   instructions: [],
@@ -56,13 +61,11 @@ const recipesReducer = (state=initialState, action) => {
   } else if (action.type === FETCH_INSTRUCTIONS_REQUEST) {
     return Object.assign({}, state, {
       loading: true,
-      myRecipes: false,
     })
   } else if (action.type === FETCH_INSTRUCTIONS_ERROR) {
     return Object.assign({}, state, {
       loading: false,
       error: action.error,
-      myRecipes: false,
     })
   } else if (action.type === FETCH_INSTRUCTIONS_SUCCESS) {
     console.log('FETCH SUCCESS')
@@ -86,6 +89,37 @@ const recipesReducer = (state=initialState, action) => {
       loading: false,
       error: null,
       myRecipes: false,
+    })
+  } else if (action.type === HIDE_INSTRUCTIONS_REQUEST) {
+    return Object.assign({}, state, {
+      loading: true,
+    })
+  } else if (action.type === HIDE_INSTRUCTIONS_ERROR) {
+    return Object.assign({}, state, {
+      loading: false,
+      error: action.error,
+    })
+  } else if (action.type === HIDE_INSTRUCTIONS_SUCCESS) {
+    console.log('HIDE SUCCESS')
+    console.log('STATE RECIPES', state.recipes);
+    console.log('action id of the recipe instructions to hide', action.id)
+    //new recipes object the recipe to hide instructions)
+      const recipeToUpdate = state.recipes.find(recipe => recipe.id === action.id);
+      //set the recipesInstructions to undefined 
+      recipeToUpdate.instructions = undefined
+      //new recipes array containing all old recipes + new one
+      const newArray = state.recipes.map(recipe=> {
+        if (recipe.id === action.data) {
+          recipe = recipeToUpdate
+        }
+        return recipe
+      })
+      console.log('recipes array:', newArray)
+    // add new array to recipe property
+    return Object.assign({}, state, {
+      recipes: newArray,
+      loading: false,
+      error: null,
     })
   } else if (action.type === GET_RECIPE_ID) {
     return Object.assign({}, state, {
