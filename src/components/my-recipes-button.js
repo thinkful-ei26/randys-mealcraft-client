@@ -14,8 +14,10 @@ export class MyRecipesButton extends React.Component {
       return (
         <Redirect to="/myrecipes" />,
         console.log('my recipes button clicked'),
+        console.log('myRecipesState', this.props.myRecipes),
         this.props.dispatch(fetchSavedRecipes()),
-        console.log(this.props.recipes)
+        console.log('state recipes', this.props.recipes),
+        console.log('myRecipesState after action', this.props.myRecipes)
       )
       // return this.props.dispatch(fetchRecipeInstructions(this.props.recipeId))
     }
@@ -33,7 +35,8 @@ export class MyRecipesButton extends React.Component {
 const mapStateToProps = state => {
   // console.log('instructions state', state.instructions.instructions)
   return {
-    recipes: state.recipes.recipes
+    recipes: state.recipes.recipes,
+    myRecipes: state.recipes.myRecipes,
   }
 };
 

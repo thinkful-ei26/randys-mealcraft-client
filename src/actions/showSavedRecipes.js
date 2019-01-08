@@ -23,14 +23,7 @@ export const fetchSavedRecipesError = (error) => {
   }
 }
 
-export const SHOW_INSTRUCTIONS = 'SHOW_INSTRUCTIONS'
-export const showInstructions = () => {
-  return {
-    type: SHOW_INSTRUCTIONS,
-  }
-}
-
-export const fetchSavedRecipes = () => dispatch => {
+export const fetchSavedRecipes = (data) => dispatch => {
   const authToken = localStorage.getItem('token')
   return fetch(`${API_BASE_URL}/myrecipes`, {
     method: 'GET',

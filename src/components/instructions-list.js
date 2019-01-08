@@ -41,7 +41,6 @@ export class InstructionsList extends React.Component {
     if (this.props.instructions.length === 0) {
       instructions = <p>No instructions for this recipe... Save it to add your own!</p>
     } else {
-      console.log(this.props.instructions)
       instructions = <p>Instructions: {this.props.instructions[0].steps[0].step}</p>
     }
     

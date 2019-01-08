@@ -1,6 +1,6 @@
 import { API_BASE_URL } from "../config";
 
-export const SAVE_RECIPE_SUCCESS = 'RECIPES_SUCCESS'
+export const SAVE_RECIPE_SUCCESS = 'SAVE_RECIPES_SUCCESS'
 export const SaveRecipeSuccess = (data) => {
   return {
     type: SAVE_RECIPE_SUCCESS,
@@ -8,14 +8,14 @@ export const SaveRecipeSuccess = (data) => {
   }
 }
 
-export const SAVE_RECIPE_REQUEST = '_RECIPE_REQUEST'
+export const SAVE_RECIPE_REQUEST = 'SAVE_RECIPE_REQUEST'
 export const SaveRecipeRequest = (data) => {
   return {
     type: SAVE_RECIPE_REQUEST,
   }
 }
 
-export const SAVE_RECIPE_ERROR = 'RECIPES_REQUEST'
+export const SAVE_RECIPE_ERROR = 'SAVE_RECIPES_ERROR'
 export const SaveRecipeError = (error) => {
   return {
     type: SAVE_RECIPE_REQUEST,

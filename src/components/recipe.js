@@ -5,6 +5,7 @@ import {fetchRecipes} from '../actions/searchRecipes';
 import InstructionsButton from './instructions-button';
 import InstructionsList from './instructions-list';
 import SaveRecipeButton from './save-recipe-button';
+import DeleteRecipeButton from './delete-recipe-button';
 
 export class Recipe extends React.Component {
  
@@ -37,8 +38,16 @@ export class Recipe extends React.Component {
     }  
 
     let saveRecipeButton = '';
-    if (this.props.loggedIn !== null) {
+    if (this.props.loggedIn !== null && this.props.myRecipes === false) {
       saveRecipeButton = <SaveRecipeButton recipe={recipe}/>
+    }
+
+    let userControls = ''
+    if (this.props.myRecipes) {
+      userControls = (
+        <DeleteRecipeButton />
+        // <UpdateRecipeButton />
+      )
     }
 
     return <li key={index}>
@@ -46,6 +55,9 @@ export class Recipe extends React.Component {
       <img src={recipe.image} alt={recipe.title}></img>
       {instructions}
       {saveRecipeButton}
+      <SaveRecipeButton recipe={recipe}/>
+      <DeleteRecipeButton recipe={recipe} recipeId={recipe.id} spoonacularId={recipe.spoonacularId}/>
+      {userControls}
     </li>
     }
   )
@@ -55,8 +67,8 @@ export class Recipe extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('Recipes State:', state.recipes.recipes)
-  console.log('loading state:', state.recipes.loading)
+  // console.log('Recipes State:', state.recipes.recipes)
+  // console.log('loading state:', state.recipes.loading)
   return {
     showRecipes: state.recipes.showRecipes,
     myRecipes: state.recipes.savedRecipes,

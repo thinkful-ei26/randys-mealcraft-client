@@ -19,13 +19,16 @@ import {FETCH_SAVED_RECIPES_SUCCESS,
   FETCH_SAVED_RECIPES_ERROR} 
 from '../actions/showSavedRecipes'
 
+import {DELETE_RECIPE_SUCCESS, 
+  DELETE_RECIPE_REQUEST,  
+  DELETE_RECIPE_ERROR} 
+from '../actions/deleteRecipes'
 
 const initialState = {
   recipes: [],
   instructions: [],
   ingredients: [],
-  savedRecipes: [],
-  showRecipes: false,
+  myRecipes: false,
   loading: false,
   error: null
 }
@@ -34,26 +37,32 @@ const recipesReducer = (state=initialState, action) => {
   if (action.type === FETCH_RECIPES_REQUEST) {
     return Object.assign({}, state, {
       loading: true,
+      myRecipes: false,
     })
   } else if (action.type === FETCH_RECIPES_ERROR) {
     return Object.assign({}, state, {
       loading: false,
-      error: action.error
+      error: action.error,
+      myRecipes: false,
+
     })
   } else if (action.type === FETCH_RECIPES_SUCCESS) {
     return Object.assign({}, state, {
       recipes: action.data,
       loading: false,
-      error: null
+      error: null,
+      myRecipes: false,
     })
   } else if (action.type === FETCH_INSTRUCTIONS_REQUEST) {
     return Object.assign({}, state, {
       loading: true,
+      myRecipes: false,
     })
   } else if (action.type === FETCH_INSTRUCTIONS_ERROR) {
     return Object.assign({}, state, {
       loading: false,
-      error: action.error
+      error: action.error,
+      myRecipes: false,
     })
   } else if (action.type === FETCH_INSTRUCTIONS_SUCCESS) {
     console.log('FETCH SUCCESS')
@@ -75,7 +84,8 @@ const recipesReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       recipes: newArray,
       loading: false,
-      error: null
+      error: null,
+      myRecipes: false,
     })
   } else if (action.type === GET_RECIPE_ID) {
     return Object.assign({}, state, {
@@ -84,32 +94,67 @@ const recipesReducer = (state=initialState, action) => {
   } else if (action.type === SAVE_RECIPE_REQUEST) {
     return Object.assign({}, state, {
       loading: true,
+      myRecipes: false,
     })
   } else if (action.type === SAVE_RECIPE_ERROR) {
     return Object.assign({}, state, {
       loading: false,
       error: action.error,
+      myRecipes: false,
+
     })
   } else if (action.type === SAVE_RECIPE_SUCCESS) {
     return Object.assign({}, state, {
       loading: false,
       error: null,
+      myRecipes: false,
+
     })
   } else if (action.type === FETCH_SAVED_RECIPES_REQUEST) {
     return Object.assign({}, state, {
       loading: true,
+      myRecipes: false,
     })
   } else if (action.type === FETCH_SAVED_RECIPES_ERROR) {
     return Object.assign({}, state, {
       loading: false,
-      error: action.error
+      error: action.error,
+      myRecipes: false,
     })
   } else if (action.type === FETCH_SAVED_RECIPES_SUCCESS) {
-    console.log(action.data)
+    console.log('Fetched data', action.data)
     return Object.assign({}, state, {
       recipes: action.data,
+      myRecipes: true,
       loading: false,
       error: null
+    })
+  } else if (action.type === DELETE_RECIPE_REQUEST) {
+    return Object.assign({}, state, {
+      loading: true,
+      myRecipes: true,
+    })
+  } else if (action.type === DELETE_RECIPE_ERROR) {
+    return Object.assign({}, state, {
+      loading: false,
+      error: action.error,
+      myRecipes: true,
+    })
+  } else if (action.type === DELETE_RECIPE_SUCCESS) {
+    console.log('DELETE SUCCESS')
+      // const recipeToDelete = state.recipes.find(recipe => recipe.id === action.data);
+      // const updatedRecipe = Object.assign(recipeToDelete, {instructions: action.id});
+      console.log('recipe spoontacularId', action.spoonacularId)
+      //new recipes array containing all old recipes + new one
+      const newRecipes = state.recipes.filter(recipe=>
+        recipe.spoonacularId !== action.spoonacularId)
+      console.log('recipes array:', newRecipes)
+    // add new array to recipe property
+    return Object.assign({}, state, {
+      recipes: newRecipes,
+      loading: false,
+      error: null,
+      myRecipes: true,
     })
   }
   return state

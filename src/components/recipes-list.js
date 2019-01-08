@@ -28,8 +28,8 @@ export class RecipesList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('Recipes State:', state.recipes.recipes)
-  console.log('loading state:', state.recipes.loading)
+  // console.log('Recipes State:', state.recipes.recipes)
+  // console.log('loading state:', state.recipes.loading)
   return {
     recipes: state.recipes.recipes,
     showRecipes: state.recipes.showRecipes,
