@@ -1,0 +1,14 @@
+.home {
+  max-width: 400px;
+  margin: auto;
+}
+
+.home h2 {
+  margin-left: 14px;
+}
+
+.home a {
+  margin: 20px;
+  text-decoration: none;
+  color: black;
+}

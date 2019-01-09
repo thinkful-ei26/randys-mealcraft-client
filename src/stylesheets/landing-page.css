@@ -1,5 +1,5 @@
 .wrapper {
-  background-image: linear-gradient(rgba(25,0,0,.8), rgba(25,0,0,0)), url('../images/landing_page_image5.jpg');
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/landing_page_image5.jpg');
   background-size: cover;
   height: 100vh;
   width: 100vw;
@@ -10,7 +10,7 @@
 .landing-content {
   display: flex;
   flex-direction: column;
-  margin-top: 180px;
+  margin-top: 98px;
 }
 
 header {
@@ -30,7 +30,22 @@ header {
   font-family: 'Signika Negative', sans-serif;
 }
 
+.landing-content h3 {
+  margin: auto;
+  color: lightgoldenrodyellow;
+}
+
 #craft {
   color: goldenrod;
 }
 
+#landing-message {
+  margin: auto;
+  font-style: italic;
+  color: goldenrod;
+}
+
+button:hover {
+  opacity: .7;
+  cursor: pointer;
+}

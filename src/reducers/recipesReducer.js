@@ -35,10 +35,12 @@ const initialState = {
   ingredients: [],
   myRecipes: false,
   loading: false,
-  error: null
+  error: null,
+  savedNotice: '',
 }
 
 const recipesReducer = (state=initialState, action) => {
+  console.log(action)
   if (action.type === FETCH_RECIPES_REQUEST) {
     return Object.assign({}, state, {
       loading: true,
@@ -142,7 +144,7 @@ const recipesReducer = (state=initialState, action) => {
       loading: false,
       error: null,
       myRecipes: false,
-
+      savedNotice: "Recipe saved! View it later from your 'My Recipes' button.",
     })
   } else if (action.type === FETCH_SAVED_RECIPES_REQUEST) {
     return Object.assign({}, state, {

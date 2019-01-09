@@ -1,0 +1,35 @@
+.registration-form {
+  border: 1px solid #efefef;
+  padding: 42px;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 20px;
+  max-width: 320px;
+  background: #fafafa;
+  border-radius: 3px;
+  border: solid 1px #efefef;
+  box-shadow: 1px 1px 1px #EDEDED;
+}
+
+input {
+  margin-top: 4px;
+  margin-bottom: 8px;
+  padding: 8px;
+  min-width: 230px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px #EDEDED;
+}
+
+.button-div {
+  text-align: center;
+  margin-top: 20px
+}
+
+#register-button {
+  padding: 2px;
+  border-radius: 4px;
+  width: 220px;
+  background-color: lightgoldenrodyellow;
+  font-size: 14px;
+  padding: 20px;
+}

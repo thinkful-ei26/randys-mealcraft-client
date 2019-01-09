@@ -15,7 +15,7 @@ export class TopNav extends React.Component {
       <nav>
         <ul className="user-controls">            
           <li id="register">
-            <p>Want to save recipes? <Link to="/register">Register here!</Link></p>
+            <p>Want to save recipes? <span id='register'><Link to="/register">Register here!</Link></span></p>
           </li>
           <li>
             <LoginForm />

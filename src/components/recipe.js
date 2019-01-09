@@ -36,16 +36,14 @@ export class Recipe extends React.Component {
       instructions = <p>Loading Instructions</p>
     } else {
     // if (this.props.recipes.instructions !== null && this.props.loading === false) {
-      instructions = <InstructionsList recipeId={recipe.id} recipe={recipe} instructions={recipe.instructions}>
-        <button>Hide Instructions</button>
-      </InstructionsList>
+      instructions = <InstructionsList recipeId={recipe.id} recipe={recipe} instructions={recipe.instructions} />
     }  
 
    
 
     return <li key={index}>
-      <h2>{recipe.title}</h2>
       <img src={recipe.image} alt={recipe.title}></img>
+      <h2>{recipe.title}</h2>
       {instructions}
       {/* {saveRecipeButton} */}
       {/* <SaveRecipeButton recipe={recipe}/> */}

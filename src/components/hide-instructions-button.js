@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import '../stylesheets/hide-instructions-button.css'
+
 
 // import recipesReducer from '../reducers/recipesReducer';
 import {hideRecipeInstructions} from '../actions/hideInstructions'

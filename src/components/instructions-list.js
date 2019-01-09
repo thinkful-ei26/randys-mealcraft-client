@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import SaveRecipeButton from './save-recipe-button';
 import HideInstructionsButton from './hide-instructions-button';
 
-
 export class InstructionsList extends React.Component {
 
   render() {
@@ -20,41 +19,40 @@ export class InstructionsList extends React.Component {
     if (this.props.instructions.length === 0) {
       recipeIngredients = <p>Oops! This recipe's ingredients aren't listed</p>
     } else {
-      recipeIngredients = this.props.instructions[0].steps[0].ingredients.map(ingredient=> {
-        return <li key={ingredient.name}>
-          <p>{ingredient.name}</p>
-          </li>
+      recipeIngredients = this.props.instructions[0].steps[0].ingredients.map((ingredient)=> {
+        return <p>{ingredient.name}</p>
+
       })
     }
 
     let ingredients;
-    const ingredientsStyle = {color: 'darkgoldenrod'}
+    // const ingredientsStyle = {color: 'darkgoldenrod'}
     if (recipeIngredients.length === 0) {
       ingredients = ''
     } else {
       ingredients = 
       <ul className='ingredients-list'>
-        <span style={ingredientsStyle}>Ingredients: </span>
+        <span>Ingredients: </span>
         {recipeIngredients}
       </ul>
     }
 
     let cookTime;
-    const cookTimeStyle = {color: 'darkgoldenrod'}
+    // const cookTimeStyle = {color: 'darkgoldenrod'}
     if (this.props.ingredients === undefined ) {
       cookTime = ''
     } else if (this.props.instructions[0].steps[0].length) {
-      cookTime = <p><span style={cookTimeStyle}>Cook Time: </span>{this.props.instructions[0].steps[0].length.number} {this.props.instructions[0].steps[0].length.unit}</p>
+      cookTime = <p>Cook Time: {this.props.instructions[0].steps[0].length.number} {this.props.instructions[0].steps[0].length.unit}</p>
     } else {
       cookTime = ''
     }
 
     let instructions;
-    const instructionsStyle = {color: 'darkgoldenrod'}
+    // const instructionsStyle = {color: 'darkgoldenrod'}
     if (this.props.instructions.length === 0) {
       instructions = <p>No instructions for this recipe... Save it to add your own!</p>
     } else {
-      instructions = <p><span style={instructionsStyle}>Instructions:</span> {this.props.instructions[0].steps[0].step}</p>
+      instructions = <p>Instructions: {this.props.instructions[0].steps[0].step}</p>
     }
     
     let hideInstructionsButton = '';

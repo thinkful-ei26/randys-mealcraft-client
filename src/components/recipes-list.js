@@ -21,16 +21,18 @@ export class RecipesList extends React.Component {
 
   render() {
     let header = '';
-    if (this.props.loggedIn) {
+    if (this.props.loggedIn && this.props.showRecipes) {
       header = 'Your Recipes'
-    } else if (this.props.loggedIn === null && this.props.recipes.length > 0) {
+    } else if (this.props.recipes.length > 0) {
       header = 'Search Results'
     }
 
 
     return (
       <ul className='recipe-list'>
-        <h2 id='recipe-list-header'>{header}</h2>
+        <div className='search-results'>
+          <h2 id='recipe-list-header'>{header}</h2>
+        </div>
         <Recipe />  
       </ul>
     )
@@ -42,7 +44,7 @@ const mapStateToProps = (state) => {
   // console.log('loading state:', state.recipes.loading)
   return {
     recipes: state.recipes.recipes,
-    showRecipes: state.recipes.showRecipes,
+    myRecipes: state.recipes.myRecipes,
     ingredients: state.recipes.ingredients,
     instructions: state.recipes.instructions,
     loading: state.recipes.loading,
