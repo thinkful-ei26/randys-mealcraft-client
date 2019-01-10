@@ -28,7 +28,6 @@ export class DeleteRecipeButton extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // console.log('instructions state', state.instructions.instructions)
   return {
     currentUser: state.auth.currentUser,
     myRecipes: state.recipes.savedRecipes

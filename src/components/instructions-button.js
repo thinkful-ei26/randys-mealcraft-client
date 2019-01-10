@@ -21,7 +21,6 @@ export class InstructionsButton extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // console.log('instructions state', state.instructions.instructions)
   return {
     instructions: state.recipes.instructions
   }

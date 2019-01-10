@@ -21,12 +21,10 @@ export class InstructionsList extends React.Component {
     } else {
       recipeIngredients = this.props.instructions[0].steps[0].ingredients.map((ingredient)=> {
         return <p>{ingredient.name}</p>
-
       })
     }
 
     let ingredients;
-    // const ingredientsStyle = {color: 'darkgoldenrod'}
     if (recipeIngredients.length === 0) {
       ingredients = ''
     } else {
@@ -38,7 +36,6 @@ export class InstructionsList extends React.Component {
     }
 
     let cookTime;
-    // const cookTimeStyle = {color: 'darkgoldenrod'}
     if (this.props.ingredients === undefined ) {
       cookTime = ''
     } else if (this.props.instructions[0].steps[0].length) {
@@ -48,7 +45,6 @@ export class InstructionsList extends React.Component {
     }
 
     let instructions;
-    // const instructionsStyle = {color: 'darkgoldenrod'}
     if (this.props.instructions.length === 0) {
       instructions = <p>No instructions for this recipe... Save it to add your own!</p>
     } else {

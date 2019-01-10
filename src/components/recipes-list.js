@@ -12,7 +12,7 @@ import {Link, Redirect} from 'react-router-dom';
 
 export class RecipesList extends React.Component {
   componentDidMount() {
-    if (this.props.showRecipes) {
+    if (this.props.myRecipes) {
       this.props.dispatch(fetchSavedRecipes());
     }
     this.props.dispatch(fetchRecipes(this.props.ingredients));
@@ -21,7 +21,7 @@ export class RecipesList extends React.Component {
 
   render() {
     let header = '';
-    if (this.props.loggedIn && this.props.showRecipes) {
+    if (this.props.loggedIn && this.props.myRecipes) {
       header = 'Your Recipes'
     } else if (this.props.recipes.length > 0) {
       header = 'Search Results'
@@ -40,8 +40,6 @@ export class RecipesList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  // console.log('Recipes State:', state.recipes.recipes)
-  // console.log('loading state:', state.recipes.loading)
   return {
     recipes: state.recipes.recipes,
     myRecipes: state.recipes.myRecipes,

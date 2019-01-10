@@ -34,7 +34,7 @@ export const deleteRecipe = (recipeId, spoontacularId) => (dispatch) => {
     },
     // body: recipeId
   })
-  // .then(res => res.json(res))
+  .then(res => res.json(res))
   .then(() => {
     dispatch(deleteRecipeSuccess(spoontacularId))
   })

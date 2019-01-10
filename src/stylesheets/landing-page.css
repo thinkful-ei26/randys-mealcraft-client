@@ -27,7 +27,6 @@ header {
 .landing-content h2 {
   margin: 0 auto;
   color: goldenrod;
-  font-family: 'Signika Negative', sans-serif;
 }
 
 .landing-content h3 {
@@ -43,6 +42,8 @@ header {
   margin: auto;
   font-style: italic;
   color: goldenrod;
+  font-size: 20px;
+  font-weight: bolder;
 }
 
 button:hover {

@@ -8,8 +8,6 @@ import '../stylesheets/login-form-button.css'
 
 export class LoginForm extends React.Component {
   onSubmit(values) {
-    console.log('login button clicked', values.username, values.password)
-
     return this.props.dispatch(login(values.username, values.password))
   };
 

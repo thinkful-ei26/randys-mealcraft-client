@@ -26,7 +26,6 @@ export const saveRecipeError = (error) => {
 
 export const saveRecipe = (recipe) => (dispatch) => {
   const authToken = localStorage.getItem('token')
-  console.log(this)
   return fetch(`${API_BASE_URL}/myrecipes`, {
     method: 'POST',
     headers: {
@@ -35,7 +34,7 @@ export const saveRecipe = (recipe) => (dispatch) => {
     },
     body: JSON.stringify(recipe)
   })
-  .then(res => (res.json()))
+  .then(res => res.json())
   .then(data => dispatch(saveRecipeSuccess(data)))
   .then(() => console.log('in the save recipe function'))
   .catch(error => console.log(error))

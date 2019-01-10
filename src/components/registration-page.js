@@ -12,7 +12,7 @@ export function RegistrationPage(props) {
     return <Redirect to="/dashboard" />;
   }
   return (
-    <div className="home">
+    <div className="registration-home">
       <h2>Register for MealCraft!</h2>
       <RegistrationForm />
       <Link to="/">Back to MealCraft</Link>
