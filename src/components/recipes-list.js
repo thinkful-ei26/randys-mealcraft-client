@@ -1,14 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchRecipes} from '../actions/searchRecipes';
-// import {getInstructions} from '../actions/getInstructions'
-import InstructionsButton from './instructions-button';
-import InstructionsList from './instructions-list';
-import SaveRecipeButton from './save-recipe-button';
 import {fetchSavedRecipes} from '../actions/showSavedRecipes';
 import Recipe from './recipe';
 import '../stylesheets/recipes-list.css'
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 export class RecipesList extends React.Component {
   componentDidMount() {
@@ -23,7 +19,6 @@ export class RecipesList extends React.Component {
     return (
       <ul className='recipe-list'>
         <div className='search-results'>
-  
         </div>
         <Recipe />  
       </ul>
@@ -33,12 +28,7 @@ export class RecipesList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    recipes: state.recipes.recipes,
-    myRecipes: state.recipes.myRecipes,
     ingredients: state.recipes.ingredients,
-    instructions: state.recipes.instructions,
-    loading: state.recipes.loading,
-    loggedIn: state.auth.currentUser
   }
 }
 

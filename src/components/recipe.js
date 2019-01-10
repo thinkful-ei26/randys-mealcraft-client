@@ -1,7 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchRecipes} from '../actions/searchRecipes';
-// import {getInstructions} from '../actions/getInstructions'
 import InstructionsButton from './instructions-button';
 import InstructionsList from './instructions-list';
 import DeleteRecipeButton from './delete-recipe-button';
@@ -29,9 +27,6 @@ export class Recipe extends React.Component {
         <img src={recipe.image} alt={recipe.title}></img>
         <h2>{recipe.title}</h2>
         {instructions}
-        {/* {saveRecipeButton} */}
-        {/* <SaveRecipeButton recipe={recipe}/> */}
-        {/* <DeleteRecipeButton recipe={recipe} recipeId={recipe.id} spoonacularId={recipe.spoonacularId}/> */}
         {userControls}
       </li>
     }
@@ -41,15 +36,12 @@ export class Recipe extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  // console.log('Recipes State:', state.recipes.recipes)
-  // console.log('loading state:', state.recipes.loading)
   return {
     myRecipes: state.recipes.myRecipes,
     recipes: state.recipes.recipes,
     ingredients: state.recipes.ingredients,
     instructions: state.recipes.instructions,
     loading: state.recipes.loading,
-    loggedIn: state.auth.currentUser
   }
 }
 

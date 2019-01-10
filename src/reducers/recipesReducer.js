@@ -1,12 +1,11 @@
 import {FETCH_RECIPES_SUCCESS, 
-        FETCH_RECIPES_REQUEST,  
-        FETCH_RECIPES_ERROR} 
+  FETCH_RECIPES_REQUEST,  
+  FETCH_RECIPES_ERROR} 
 from '../actions/searchRecipes'
 
 import {FETCH_INSTRUCTIONS_SUCCESS, 
-        FETCH_INSTRUCTIONS_REQUEST, 
-        FETCH_INSTRUCTIONS_ERROR, 
-        GET_RECIPE_ID}
+  FETCH_INSTRUCTIONS_REQUEST, 
+  FETCH_INSTRUCTIONS_ERROR,}
 from '../actions/getInstructions'
 
 import {SAVE_RECIPE_SUCCESS, 
@@ -40,7 +39,6 @@ const initialState = {
 }
 
 const recipesReducer = (state=initialState, action) => {
-  console.log(action)
   if (action.type === FETCH_RECIPES_REQUEST) {
     return Object.assign({}, state, {
       loading: true,
@@ -70,12 +68,10 @@ const recipesReducer = (state=initialState, action) => {
       error: action.error,
     })
   } else if (action.type === FETCH_INSTRUCTIONS_SUCCESS) {
-    console.log('FETCH SUCCESS')
     //new recipes object for the one recipe to change Object.assign()
       const recipeToUpdate = state.recipes.find(recipe => recipe.id === action.data);
       //updated recipe
       const updatedRecipe = Object.assign(recipeToUpdate, {instructions: action.id});
-      console.log('rupdatedRecipe:', updatedRecipe)
       //new recipes array containing all old recipes + new one
       const newArray = state.recipes.map(recipe=> {
         if (recipe.id === action.data) {
@@ -83,8 +79,6 @@ const recipesReducer = (state=initialState, action) => {
         }
         return recipe
       })
-
-      console.log('recipes array:', newArray)
     // add new array to recipe property
     return Object.assign({}, state, {
       recipes: newArray,
@@ -102,10 +96,7 @@ const recipesReducer = (state=initialState, action) => {
       error: action.error,
     })
   } else if (action.type === HIDE_INSTRUCTIONS_SUCCESS) {
-    console.log('HIDE SUCCESS')
-    console.log('STATE RECIPES', state.recipes);
-    console.log('action id of the recipe instructions to hide', action.id)
-    //new recipes object the recipe to hide instructions)
+      //new recipes object the recipe to hide instructions)
       const recipeToUpdate = state.recipes.find(recipe => recipe.id === action.id);
       //set the recipesInstructions to undefined 
       recipeToUpdate.instructions = undefined
@@ -116,16 +107,11 @@ const recipesReducer = (state=initialState, action) => {
         }
         return recipe
       })
-      console.log('recipes array:', newArray)
     // add new array to recipe property
     return Object.assign({}, state, {
       recipes: newArray,
       loading: false,
       error: null,
-    })
-  } else if (action.type === GET_RECIPE_ID) {
-    return Object.assign({}, state, {
-      recipeIds: action.id
     })
   } else if (action.type === SAVE_RECIPE_REQUEST) {
     return Object.assign({}, state, {

@@ -2,15 +2,11 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import {fetchRecipes} from '../actions/searchRecipes'
 import Input from './input';
-import {Link, Redirect} from 'react-router-dom';
 import '../stylesheets/search-form.css';
 
 export class SearchForm extends React.Component {
   onSubmit(values) {
-    console.log(values.ingredients)
     return this.props.dispatch(fetchRecipes(values.ingredients))
-      // return <Redirect to="/recipes-list" />
-      // , values.ingredients)
   }
 
   render() {
@@ -51,8 +47,6 @@ export class SearchForm extends React.Component {
     );
   }
 }
-
-
 
 export default reduxForm({
   form: 'search-form',

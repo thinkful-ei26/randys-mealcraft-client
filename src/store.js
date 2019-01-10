@@ -4,7 +4,6 @@ import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import recipesReducer from './reducers/recipesReducer'
-import protectedDataReducer from './reducers/protected-data';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 import rootReducer from './reducers';
 import instructionsReducer from './reducers/instructionsReducer';
@@ -14,10 +13,8 @@ const store = createStore(
     rootReducer,
     form: formReducer,
     auth: authReducer,
-    protectedData: protectedDataReducer,
     recipes: recipesReducer,
     instructions: instructionsReducer
-    
   }),
   applyMiddleware(thunk)
 );

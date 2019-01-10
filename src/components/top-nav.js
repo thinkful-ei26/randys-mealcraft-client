@@ -1,12 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
 import LoginForm from './login-form';
-import {Link, Redirect} from 'react-router-dom';
-import '../stylesheets/top-nav.css'
+import {Link} from 'react-router-dom';
 import MyRecipesButton from './my-recipes-button';
 import {clearAuth} from '../actions/auth';
-import { clearAuthToken } from '../local-storage';
+import {clearAuthToken} from '../local-storage';
+import '../stylesheets/top-nav.css'
 
 export class TopNav extends React.Component {
   onLogout() {
@@ -30,23 +29,22 @@ export class TopNav extends React.Component {
       </nav>
     } else {
       navbar = 
-        <nav>
-          <div role='banner' className='dashboard-banner'>
-            <ul className="user-controls">            
-              <li>
-                <p>Meal<span id='craft'>Craft</span></p>
-                <p>Weclome back, {this.props.currentUser}!</p>
-              </li>
-              <li>
-                <MyRecipesButton />
-                <br></br>
-                <button onClick={() => this.onLogout()}>Log out</button>
-              </li>
-            </ul>  
-          </div>
-        </nav>
+      <nav>
+        <div role='banner' className='dashboard-banner'>
+          <ul className="user-controls">            
+            <li>
+              <p>Meal<span id='craft'>Craft</span></p>
+              <p>Weclome back, {this.props.currentUser}!</p>
+            </li>
+            <li>
+              <MyRecipesButton />
+              <br></br>
+              <button onClick={() => this.onLogout()}>Log out</button>
+            </li>
+          </ul>  
+        </div>
+      </nav>
     }
-
     return (
       navbar
     );

@@ -1,16 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
 import SearchForm from './search-form';
 import RecipesList from './recipes-list';
 // import MyRecipesButton from './my-recipes-button';
 import TopNav from './top-nav';
 
 export class Dashboard extends React.Component {
-  componentDidMount() {
-    this.props.dispatch(fetchProtectedData());
-  }
+  // componentDidMount() {
+  //   this.props.dispatch(fetchProtectedData());
+  // }
 
   render() {
     
@@ -23,7 +22,6 @@ export class Dashboard extends React.Component {
       header = 'Search Results'
     }
 
-    console.log(header)
     return (
       <div className="dashboard">
        <TopNav />

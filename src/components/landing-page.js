@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 import SearchForm from './search-form';
 import RecipesList from './recipes-list';
@@ -10,13 +10,9 @@ import TopNav from './top-nav';
 
 class LandingPage extends React.Component {
     // If we are logged in redirect straight to the user's dashboard
-
     componentDidMount() {
         const authToken = localStorage.getItem('token')
-        console.log('authToken', authToken)
-        console.log('logged in?', this.props.loggedIn)
-        console.log('Current User:', this.props.currentUser)
-        // this.props.dispatch(authSuccess(this.props.currentUser))
+        this.props.dispatch(authSuccess(this.props.currentUser))
     }
 
     render() {

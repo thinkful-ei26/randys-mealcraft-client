@@ -19,8 +19,8 @@ export class InstructionsList extends React.Component {
     if (this.props.instructions.length === 0) {
       recipeIngredients = <p>Oops! This recipe's ingredients aren't listed</p>
     } else {
-      recipeIngredients = this.props.instructions[0].steps[0].ingredients.map((ingredient)=> {
-        return <p>{ingredient.name}</p>
+      recipeIngredients = this.props.instructions[0].steps[0].ingredients.map((ingredient, index)=> {
+        return <p key={index}>{ingredient.name}</p>
       })
     }
 
