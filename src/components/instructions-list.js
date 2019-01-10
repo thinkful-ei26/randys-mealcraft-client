@@ -10,7 +10,7 @@ export class InstructionsList extends React.Component {
       return <div><p>Loading</p></div>
     }
 
-    
+    console.log(this.props.recipe)    
 
     let recipeIngredients = ''
     if (this.props.instructions.length === 0) {
@@ -45,7 +45,9 @@ export class InstructionsList extends React.Component {
     if (this.props.instructions.length === 0) {
       instructions = <p>No instructions for this recipe... Save it to add your own!</p>
     } else {
-      instructions = <p>Instructions: {this.props.instructions[0].steps[0].step}</p>
+      instructions = this.props.instructions[0].steps.map(step => {
+        return <p>{step.number}. {step.step}</p>
+      })
     }
     
     let hideInstructionsButton = '';

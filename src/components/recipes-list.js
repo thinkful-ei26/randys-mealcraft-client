@@ -28,7 +28,7 @@ export class RecipesList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    ingredients: state.recipes.ingredients,
+    ingredients: state.ingredients,
   }
 }
 

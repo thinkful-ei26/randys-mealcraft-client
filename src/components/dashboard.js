@@ -19,7 +19,7 @@ export class Dashboard extends React.Component {
     } else if (this.props.loggedIn && this.props.recipes.length === 0) {
       header = 'Search for new recipes or view your saved recipes'
     } else if (this.props.recipes.length > 0) {
-      header = 'Search Results'
+      header = `${this.props.recipes.length} recipes with ${this.props.ingredients}`
     }
 
     return (
@@ -45,7 +45,8 @@ const mapStateToProps = state => {
         recipes: state.recipes.recipes,
         myRecipes: state.recipes.myRecipes,
         loading: state.recipes.loading,
-        loggedIn: state.auth.currentUser
+        loggedIn: state.auth.currentUser,
+        ingredients: state.recipes.ingredients,
     };
 };
 

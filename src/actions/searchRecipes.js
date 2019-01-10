@@ -1,9 +1,10 @@
 // import { API_BASE_URL } from "../config";
 
 export const FETCH_RECIPES_SUCCESS = 'FETCH_RECIPES_SUCCESS'
-export const fetchRecipesSuccess = (data) => {
+export const fetchRecipesSuccess = (ingredients, data) => {
   return {
     type: FETCH_RECIPES_SUCCESS,
+    ingredients,
     data
   }
 }
@@ -32,12 +33,12 @@ export const showInstructions = () => {
 
 export const fetchRecipes = (ingredients) => dispatch => {
   dispatch(fetchRecipesRequest)
-  fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=${ingredients}`, {
+  fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=50&ranking=1&ingredients=${ingredients}`, {
     method: 'GET',
     headers: {'X-RapidAPI-Key': '9dd8773296msh1e9332f045d6091p1cf10bjsna6b2dc28c2e9'}
   })
   .then(res => (res.json()))
-  .then(data => dispatch(fetchRecipesSuccess(data)))
+  .then(data => dispatch(fetchRecipesSuccess(ingredients, data)))
   .catch(error => console.log(error))
 }
 

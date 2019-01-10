@@ -6,6 +6,8 @@ import '../stylesheets/search-form.css';
 
 export class SearchForm extends React.Component {
   onSubmit(values) {
+    // console.log(values)
+    // console.log(values.ingredients)
     return this.props.dispatch(fetchRecipes(values.ingredients))
   }
 

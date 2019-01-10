@@ -31,7 +31,8 @@ class LandingPage extends React.Component {
         } else if (this.props.loggedIn && this.props.recipes.length === 0) {
           header = 'Search for new recipes or view your saved recipes'
         } else if (this.props.recipes.length > 0) {
-          header = 'Search Results'
+            console.log(this.props.ingredients)
+          header = `Here are ${this.props.recipes.length} recipes with ${this.props.ingredients}`
         }
 
         return (
@@ -59,7 +60,9 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser,
     currentUser: state.auth.currentUser,
     myRecipes: state.recipes.myRecipes,
-    recipes: state.recipes.recipes
+    recipes: state.recipes.recipes,
+    ingredients: state.recipes.ingredients
+
 });
 
 export default connect(mapStateToProps)(LandingPage);
