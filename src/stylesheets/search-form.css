@@ -11,9 +11,10 @@
 }
 
 .dashboard-search-form input {
+  flex-shrink: 1;
   margin-bottom: 4px;
   margin-top: 10px;
-  width: 400px;
+  width: 280px;
   border: none;
   padding: 10px;
   border-radius: 4px;
@@ -40,9 +41,10 @@
 }
 
 .landing-search-form input {
+  flex-grow: 1;
   margin-bottom: 4px;
   margin-top: 10px;
-  width: 400px;
+  width: 280px;
   border: none;
   padding: 10px;
   border-radius: 4px;

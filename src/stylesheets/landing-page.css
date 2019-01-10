@@ -46,6 +46,11 @@ header {
   font-weight: bolder;
 }
 
+#recipe-list-header {
+  text-align: center;
+  font-size: 40px;
+}
+
 button:hover {
   opacity: .7;
   cursor: pointer;

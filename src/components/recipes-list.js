@@ -20,18 +20,10 @@ export class RecipesList extends React.Component {
   }
 
   render() {
-    let header = '';
-    if (this.props.loggedIn && this.props.myRecipes) {
-      header = 'Your Recipes'
-    } else if (this.props.recipes.length > 0) {
-      header = 'Search Results'
-    }
-
-
     return (
       <ul className='recipe-list'>
         <div className='search-results'>
-          <h2 id='recipe-list-header'>{header}</h2>
+  
         </div>
         <Recipe />  
       </ul>

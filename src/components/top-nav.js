@@ -5,9 +5,15 @@ import LoginForm from './login-form';
 import {Link, Redirect} from 'react-router-dom';
 import '../stylesheets/top-nav.css'
 import MyRecipesButton from './my-recipes-button';
-
+import {clearAuth} from '../actions/auth';
+import { clearAuthToken } from '../local-storage';
 
 export class TopNav extends React.Component {
+  onLogout() {
+    this.props.dispatch(clearAuth());
+    clearAuthToken();
+  }
+
   render() {
     let navbar =''
     if (this.props.loggedIn === null) {
@@ -33,6 +39,8 @@ export class TopNav extends React.Component {
               </li>
               <li>
                 <MyRecipesButton />
+                <br></br>
+                <button onClick={() => this.onLogout()}>Log out</button>
               </li>
             </ul>  
           </div>

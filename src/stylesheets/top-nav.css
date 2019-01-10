@@ -34,7 +34,8 @@
 .user-controls li {
   padding: 0px 12px;
   color: lightgoldenrodyellow;
-  margin: 20px 0;
+  margin: auto 0px;
+  text-align: center;
 }
 
 .user-controls a {

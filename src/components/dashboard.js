@@ -13,11 +13,23 @@ export class Dashboard extends React.Component {
   }
 
   render() {
+    
+    let header = '';
+    if (this.props.loggedIn && this.props.myRecipes) {
+      header = 'Your Recipes'
+    } else if (this.props.loggedIn && this.props.recipes.length === 0) {
+      header = 'Search for new recipes or view your saved recipes'
+    } else if (this.props.recipes.length > 0) {
+      header = 'Search Results'
+    }
+
+    console.log(header)
     return (
       <div className="dashboard">
        <TopNav />
         <div className="home">
           <SearchForm />
+          <h2 id='recipe-list-header'>{header}</h2>
           <RecipesList />
         </div>
       </div>
@@ -32,6 +44,10 @@ const mapStateToProps = state => {
     const {currentUser} = state.auth;
     return {
         username: currentUser,
+        recipes: state.recipes.recipes,
+        myRecipes: state.recipes.myRecipes,
+        loading: state.recipes.loading,
+        loggedIn: state.auth.currentUser
     };
 };
 
