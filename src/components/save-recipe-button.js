@@ -8,7 +8,7 @@ import {saveRecipe} from '../actions/saveRecipes'
 export class SaveRecipeButton extends React.Component {
     onClick() {
       const currentUser = this.props.currentUser
-      this.props.dispatch(saveRecipe(this.props.recipe, currentUser.id));
+      this.props.dispatch(saveRecipe(this.props.recipe, currentUser.id, this.props.recipeId));
     }
 
     render() {

@@ -10,10 +10,7 @@ export class InstructionsList extends React.Component {
       return <div><p>Loading</p></div>
     }
 
-    let saveRecipeButton = '';
-      if (this.props.loggedIn !== null && this.props.myRecipes === false) {
-        saveRecipeButton = <SaveRecipeButton recipe={this.props.recipe}/>
-      }
+    
 
     let recipeIngredients = ''
     if (this.props.instructions.length === 0) {
@@ -56,6 +53,14 @@ export class InstructionsList extends React.Component {
       hideInstructionsButton = <HideInstructionsButton recipeId={this.props.recipeId} />
     }
 
+    let saveRecipeButton = '';
+    if (this.props.loggedIn !== null && this.props.myRecipes === false) {
+      saveRecipeButton = <SaveRecipeButton recipe={this.props.recipe} recipeId={this.props.recipeId}/>
+    }
+
+    // console.log(this.props.instructions[0])
+    // let savedRecipeMessage = <p>{this.props.instructions[0].savedMessage}</p> 
+
     return (
       <div className='recipe-instructions'>
         {cookTime}
@@ -63,6 +68,7 @@ export class InstructionsList extends React.Component {
         {instructions}
         {hideInstructionsButton}
         {saveRecipeButton}
+        {/* {savedRecipeMessage} */}
       </div>
     )
   }

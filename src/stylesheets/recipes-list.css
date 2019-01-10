@@ -67,6 +67,18 @@ img {
   margin: 20px;
 }
 
+.save-button {
+  margin-top: -32px;
+}
+
 .button-div {
   margin: auto auto;
 }
+
+#saved-recipe-notice {
+  color: goldenrod;
+  margin: 20px;
+  font-size: 13px;
+  margin-top: -25px;
+}
+

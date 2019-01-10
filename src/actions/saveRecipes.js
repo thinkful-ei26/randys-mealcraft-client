@@ -1,11 +1,11 @@
 import { API_BASE_URL } from "../config";
 
 export const SAVE_RECIPE_SUCCESS = 'SAVE_RECIPES_SUCCESS'
-export const saveRecipeSuccess = (data) => {
+export const saveRecipeSuccess = (userId, recipeId) => {
   return {
     type: SAVE_RECIPE_SUCCESS,
-    data
-
+    userId,
+    recipeId,
   }
 }
 
@@ -24,7 +24,7 @@ export const saveRecipeError = (error) => {
   }
 }
 
-export const saveRecipe = (recipe) => (dispatch) => {
+export const saveRecipe = (recipe, userId, recipeId) => (dispatch) => {
   const authToken = localStorage.getItem('token')
   return fetch(`${API_BASE_URL}/myrecipes`, {
     method: 'POST',
@@ -35,7 +35,7 @@ export const saveRecipe = (recipe) => (dispatch) => {
     body: JSON.stringify(recipe)
   })
   .then(res => res.json())
-  .then(data => dispatch(saveRecipeSuccess(data)))
+  .then(data => dispatch(saveRecipeSuccess(userId, recipeId)))
   .then(() => console.log('in the save recipe function'))
   .catch(error => console.log(error))
 }

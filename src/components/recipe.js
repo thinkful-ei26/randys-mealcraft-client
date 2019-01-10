@@ -28,6 +28,7 @@ export class Recipe extends React.Component {
         <h2>{recipe.title}</h2>
         {instructions}
         {userControls}
+        <p id='saved-recipe-notice'>{recipe.savedMessage}</p>
       </li>
     }
   )

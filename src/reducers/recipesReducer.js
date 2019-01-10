@@ -71,7 +71,7 @@ const recipesReducer = (state=initialState, action) => {
     //new recipes object for the one recipe to change Object.assign()
       const recipeToUpdate = state.recipes.find(recipe => recipe.id === action.data);
       //updated recipe
-      const updatedRecipe = Object.assign(recipeToUpdate, {instructions: action.id});
+      const updatedRecipe = Object.assign(recipeToUpdate, {instructions: action.id}, {savedMessage: ''});
       //new recipes array containing all old recipes + new one
       const newArray = state.recipes.map(recipe=> {
         if (recipe.id === action.data) {
@@ -126,11 +126,21 @@ const recipesReducer = (state=initialState, action) => {
 
     })
   } else if (action.type === SAVE_RECIPE_SUCCESS) {
+    const recipeToSave = state.recipes.find(recipe => recipe.id === action.recipeId)
+    console.log('Recipe Id to save', recipeToSave)
+    const savedRecipe = Object.assign(recipeToSave, {savedMessage: 'Recipe saved! View it later from your "My Recipes" tab.'})
+    console.log('New reciped with savedKey', savedRecipe)
+    const newArray = state.recipes.map(recipe=> {
+      if (recipe.id === action.recipeId) {
+        recipe = savedRecipe
+      }
+      return recipe
+    })
     return Object.assign({}, state, {
+      recipes: newArray,
       loading: false,
       error: null,
       myRecipes: false,
-      savedNotice: "Recipe saved! View it later from your 'My Recipes' button.",
     })
   } else if (action.type === FETCH_SAVED_RECIPES_REQUEST) {
     return Object.assign({}, state, {
@@ -163,21 +173,14 @@ const recipesReducer = (state=initialState, action) => {
       myRecipes: true,
     })
   } else if (action.type === DELETE_RECIPE_SUCCESS) {
-    console.log('DELETE SUCCESS')
-      // const recipeToDelete = state.recipes.find(recipe => recipe.id === action.data);
-      // const updatedRecipe = Object.assign(recipeToDelete, {instructions: action.id});
-      console.log('recipe spoontacularId', action.spoonacularId)
-      //new recipes array containing all old recipes + new one
       const newRecipes = state.recipes.filter(recipe=>
         recipe.spoonacularId !== action.spoonacularId)
-      console.log('recipes array:', newRecipes)
-    // add new array to recipe property
-    return Object.assign({}, state, {
-      recipes: newRecipes,
-      loading: false,
-      error: null,
-      myRecipes: true,
-    })
+      return Object.assign({}, state, {
+        recipes: newRecipes,
+        loading: false,
+        error: null,
+        myRecipes: true,
+      })
   }
   return state
 }
