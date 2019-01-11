@@ -36,6 +36,5 @@ export const saveRecipe = (recipe, userId, recipeId) => (dispatch) => {
   })
   .then(res => res.json())
   .then(data => dispatch(saveRecipeSuccess(userId, recipeId)))
-  .then(() => console.log('in the save recipe function'))
   .catch(error => console.log(error))
 }

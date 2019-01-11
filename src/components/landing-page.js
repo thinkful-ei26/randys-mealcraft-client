@@ -11,7 +11,7 @@ import TopNav from './top-nav';
 class LandingPage extends React.Component {
     // If we are logged in redirect straight to the user's dashboard
     componentDidMount() {
-        const authToken = localStorage.getItem('token')
+        // const authToken = localStorage.getItem('token')
         this.props.dispatch(authSuccess(this.props.currentUser))
     }
 
@@ -31,7 +31,6 @@ class LandingPage extends React.Component {
         } else if (this.props.loggedIn && this.props.recipes.length === 0) {
           header = 'Search for new recipes or view your saved recipes'
         } else if (this.props.recipes.length > 0) {
-            console.log(this.props.ingredients)
           header = `Here are ${this.props.recipes.length} recipes with ${this.props.ingredients}`
         }
 

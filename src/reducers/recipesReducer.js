@@ -128,9 +128,7 @@ const recipesReducer = (state=initialState, action) => {
     })
   } else if (action.type === SAVE_RECIPE_SUCCESS) {
     const recipeToSave = state.recipes.find(recipe => recipe.id === action.recipeId)
-    console.log('Recipe Id to save', recipeToSave)
     const savedRecipe = Object.assign(recipeToSave, {savedMessage: 'Recipe saved! View it later from your "My Recipes" tab.'})
-    console.log('New reciped with savedKey', savedRecipe)
     const newArray = state.recipes.map(recipe=> {
       if (recipe.id === action.recipeId) {
         recipe = savedRecipe
@@ -155,7 +153,6 @@ const recipesReducer = (state=initialState, action) => {
       myRecipes: false,
     })
   } else if (action.type === FETCH_SAVED_RECIPES_SUCCESS) {
-    console.log('Fetched data', action.data)
     return Object.assign({}, state, {
       recipes: action.data,
       myRecipes: true,

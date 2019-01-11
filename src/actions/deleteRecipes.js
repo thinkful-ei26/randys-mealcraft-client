@@ -25,7 +25,6 @@ export const deleteRecipeError = (error) => {
 
 export const deleteRecipe = (recipeId, spoontacularId) => (dispatch) => {
   const authToken = localStorage.getItem('token')
-  console.log('recipe Id', recipeId)
   return fetch(`${API_BASE_URL}/myrecipes/${recipeId}`, {
     method: 'DELETE',
     headers: {

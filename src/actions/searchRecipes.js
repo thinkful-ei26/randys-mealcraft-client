@@ -1,4 +1,3 @@
-// import { API_BASE_URL } from "../config";
 
 export const FETCH_RECIPES_SUCCESS = 'FETCH_RECIPES_SUCCESS'
 export const fetchRecipesSuccess = (ingredients, data) => {
