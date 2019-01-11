@@ -5,8 +5,8 @@ import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import recipesReducer from './reducers/recipesReducer'
 import {setAuthToken, refreshAuthToken} from './actions/auth';
-import rootReducer from './reducers';
-import instructionsReducer from './reducers/instructionsReducer';
+// import rootReducer from './reducers';
+// import instructionsReducer from './reducers/instructionsReducer';
 
 const store = createStore(
   combineReducers({
@@ -14,7 +14,6 @@ const store = createStore(
     form: formReducer,
     auth: authReducer,
     recipes: recipesReducer,
-    instructions: instructionsReducer
   }),
   applyMiddleware(thunk)
 );
