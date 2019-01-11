@@ -1,7 +1,9 @@
 MealCraft is a recipe search app that finds the internet's 50 most popular recipes based on whatever ingredient you search for. If you have extra ingredients in the fridge that need finishing, or bought something new and want to try a different recipe, use MealCraft for a quick and easy search. Once registering for an account, you can save all your favorite recipes to view whenever you like.
 
-[!MealCraft](https://mysterious-shore-62539.herokuapp.com)
-MealCraft Server Repo: [!Server](https://github.com/thinkful-ei26/randys-mealcraft-server)
+[MealCraft](https://mysterious-shore-62539.herokuapp.com)
+
+[Server Repo](https://github.com/thinkful-ei26/randys-mealcraft-server)
+
 Sample user: username: testuser, password: password123
 
 Landing Page
