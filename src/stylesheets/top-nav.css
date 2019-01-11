@@ -1,4 +1,4 @@
-/* .welcome-bar ul {
+.welcome-bar ul {
   list-style: none;
   display: flex;
   justify-content: flex-end;
@@ -55,4 +55,4 @@
 a:hover {
   opacity: .7;
 }
- */
+
