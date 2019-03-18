@@ -52,6 +52,7 @@ const recipesReducer = (state=initialState, action) => {
 
     })
   } else if (action.type === FETCH_RECIPES_SUCCESS) {
+    console.log(state.recipes)
     return Object.assign({}, state, {
       recipes: action.data,
       ingredients: action.ingredients,
@@ -184,12 +185,3 @@ const recipesReducer = (state=initialState, action) => {
 }
 
 export default recipesReducer
-
-
-// else if (action.type === FETCH_INSTRUCTIONS_SUCCESS) {
-//   return Object.assign({}, state, {
-//     loading: false,
-//     error: null,
-//     showInstructions: action.data
-//   })
-// }

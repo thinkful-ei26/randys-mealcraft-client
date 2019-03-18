@@ -30,6 +30,13 @@ export const showInstructions = () => {
   }
 }
 
+export const NO_RECIPES_FOUND = 'NO_RECIPES_FOUND'
+export const noRecipesFound = () => {
+  return {
+    type: NO_RECIPES_FOUND
+  }
+}
+
 export const fetchRecipes = (ingredients) => dispatch => {
   dispatch(fetchRecipesRequest)
   fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=50&ranking=1&ingredients=${ingredients}`, {

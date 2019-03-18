@@ -24,7 +24,6 @@ export class RegistrationForm extends React.Component {
         className='registration-form'
         onSubmit={this.props.handleSubmit(values => {
           this.onSubmit(values)
-          console.log(values)
         }
         )}>
         <label htmlFor='firstName'>First name</label>
