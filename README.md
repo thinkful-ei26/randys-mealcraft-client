@@ -57,3 +57,23 @@ MealCraft Codebase:
     Reducers
       -auth.js: updates auth state regarding current users and logins
       -recipesReducer: updates all recipe related states from different recipe actions
+
+API
+.
+├── /auth
+│   └── POST
+│       ├── /login
+│       └── /refresh
+├── /users
+│   └── POST
+│       └── /
+├── /recipes
+│   └── GET
+│       ├── /
+│       ├── /:id
+│   └── POST
+│       └── /
+│   └── PUT
+│       ├── /:id
+│   └── DELETE
+│       └── /:id
