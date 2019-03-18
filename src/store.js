@@ -10,7 +10,7 @@ import {setAuthToken, refreshAuthToken} from './actions/auth';
 
 const store = createStore(
   combineReducers({
-    rootReducer,
+    // rootReducer,
     form: formReducer,
     auth: authReducer,
     recipes: recipesReducer,
