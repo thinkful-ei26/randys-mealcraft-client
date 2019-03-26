@@ -62,7 +62,7 @@ API
 .
 ├── /auth
 │   └── POST
-│       ├── /login
+│       ├── /log
 │       └── /refresh
 ├── /users
 │   └── POST

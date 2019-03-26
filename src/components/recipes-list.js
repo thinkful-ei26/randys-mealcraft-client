@@ -12,7 +12,6 @@ export class RecipesList extends React.Component {
       this.props.dispatch(fetchSavedRecipes());
     }
     this.props.dispatch(fetchRecipes(this.props.ingredients));
-    console.log('hello')
     return <Redirect to='/recipes-list'/>
   }
 
@@ -28,7 +27,6 @@ export class RecipesList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(this.state.recipes)
   return {
     ingredients: state.ingredients,
     recipes: state.recipes.recipes
